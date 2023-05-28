@@ -30,7 +30,7 @@ jobs:
     
     runs-on: ubuntu-latest
     env:
-      name: Alex
+      name: Alex R.
     steps:
     - name: Run a one-line script
       run: echo Hello $name!
