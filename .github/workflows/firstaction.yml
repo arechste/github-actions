@@ -15,6 +15,25 @@ on:
 env:
   name: arechste
 jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+    env:
+      name: Alex R.
+    steps:
+    - name: Run a one-line script
+      run: | 
+        echo Hello $name!
+        echo Actor: ${{ github.actor }}
+        echo Committed By: ${{ github.event.commits[0].author.name }}
+      
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+     - env:
+       GITHUB_CONTEXT: ${{ toJson(github) }}
+       run: echo "$GITHUB_CONTEXT"
+    
   pull_request_only:
   
     runs-on: ubuntu-latest
@@ -25,13 +44,4 @@ jobs:
       run: |
          echo Add other actions to build,
          echo Hi , $name.
-         
-  build:
-    
-    runs-on: ubuntu-latest
-    env:
-      name: Alex R.
-    steps:
-    - name: Run a one-line script
-      run: echo Hello $name!
     
